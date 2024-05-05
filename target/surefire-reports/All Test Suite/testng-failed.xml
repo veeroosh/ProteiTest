@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="AuthTests(failed)" verbose="0">
+    <classes>
+      <class name="auth.AuthNegativeTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="clearFields"/>
+          <include name="checkAppearingAlertTwice"/>
+        </methods>
+      </class> <!-- auth.AuthNegativeTest -->
+      <class name="auth.AuthFieldsFormatNegativeTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="clearFields"/>
+          <include name="checkLongEmail"/>
+          <include name="checkEmailWithNameAtDomain"/>
+          <include name="checkEmailWithTwoDots"/>
+          <include name="checkEmailWithTwoAts"/>
+          <include name="checkEmailWithNameAtDomainDot"/>
+        </methods>
+      </class> <!-- auth.AuthFieldsFormatNegativeTest -->
+    </classes>
+  </test> <!-- AuthTests(failed) -->
+  <test thread-count="5" name="AddUserTests(failed)" verbose="0">
+    <classes>
+      <class name="adduser.AddUserFieldsFormatNegativeTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="clearFields"/>
+          <include name="checkEmailWithNameAtDomainDot"/>
+          <include name="checkEmailWithNameAtDomain"/>
+          <include name="checkEmailWithTwoDots"/>
+          <include name="checkEmailWithSpaceAfter"/>
+          <include name="checkEmailWithSpaceBefore"/>
+          <include name="checkEmptyName"/>
+          <include name="checkEmailWithSpaceInCenter"/>
+          <include name="openAddUserPage"/>
+          <include name="checkEmailWithTwoAts"/>
+        </methods>
+      </class> <!-- adduser.AddUserFieldsFormatNegativeTest -->
+      <class name="adduser.AddUserFieldsFormatPositiveTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="clearFields"/>
+          <include name="checkRadiobuttonSelection"/>
+          <include name="openAddUserPage"/>
+        </methods>
+      </class> <!-- adduser.AddUserFieldsFormatPositiveTest -->
+      <class name="adduser.AddUserNegativeTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="clearFields"/>
+          <include name="filledOnlyUnnecessaryFields"/>
+          <include name="allFilledExceptName"/>
+          <include name="openAddUserPage"/>
+          <include name="allFilledExceptEmail"/>
+          <include name="addFullDuplicate"/>
+          <include name="addDuplicateEmail"/>
+        </methods>
+      </class> <!-- adduser.AddUserNegativeTest -->
+    </classes>
+  </test> <!-- AddUserTests(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

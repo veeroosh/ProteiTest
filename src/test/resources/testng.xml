@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="AuthTests">
+        <classes>
+            <class name="auth.AuthFieldsFormatPositiveTest"/>
+            <class name="auth.AuthFieldsFormatNegativeTest"/>
+            <class name="auth.AuthPositiveTest"/>
+            <class name="auth.AuthNegativeTest"/>
+        </classes>
+    </test>
+    <test name="AddUserTests">
+        <classes>
+            <class name="adduser.AddUserFieldsFormatPositiveTest"/>
+            <class name="adduser.AddUserFieldsFormatNegativeTest"/>
+            <class name="adduser.AddUserPositiveTest"/>
+            <class name="adduser.AddUserNegativeTest"/>
+        </classes>
+    </test>
+</suite>
