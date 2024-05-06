@@ -68,6 +68,52 @@ public class AddUserNegativeTest extends BaseTest {
     }
 
     @Test (priority = 3)
+    public void addUserWithIncorrectEmail() {
+        int quantity = addUserPage.countRowsInTable();
+        addUserPage.setEmail("testyitwe")
+                .setName("Name")
+                .chooseGender("Женский")
+                .changeBothCheckboxes(true, true)
+                .clickRadio23()
+                .clickButtonSend();
+
+        if (addUserPage.isAddUserModalDialogVisible()) {
+            addUserPage.closeAddUserModalDialog();
+            Assert.fail("Incorrect user was added");
+        }
+
+        if (addUserPage.isAddUserAlertsHolderVisible())
+            addUserPage.closeAddUserAlertsHolder();
+        else
+            Assert.fail("Alert with error message wasn't represented");
+
+        Assert.assertEquals(addUserPage.countRowsInTable(), quantity);
+    }
+
+    @Test (priority = 4)
+    public void addUserWithIncorrectName() {
+        int quantity = addUserPage.countRowsInTable();
+        addUserPage.setEmail("test10@test.ru")
+                .setName("   hh   ")
+                .chooseGender("Женский")
+                .changeBothCheckboxes(true, true)
+                .clickRadio23()
+                .clickButtonSend();
+
+        if (addUserPage.isAddUserModalDialogVisible()) {
+            addUserPage.closeAddUserModalDialog();
+            Assert.fail("Incorrect user was added");
+        }
+
+        if (addUserPage.isAddUserAlertsHolderVisible())
+            addUserPage.closeAddUserAlertsHolder();
+        else
+            Assert.fail("Alert with error message wasn't represented");
+
+        Assert.assertEquals(addUserPage.countRowsInTable(), quantity);
+    }
+
+    @Test (priority = 5)
     public void filledOnlyUnnecessaryFields() {
         int quantity = addUserPage.countRowsInTable();
         addUserPage.chooseGender("Женский")
@@ -92,7 +138,7 @@ public class AddUserNegativeTest extends BaseTest {
         Assert.assertEquals(addUserPage.countRowsInTable(), quantity);
     }
 
-    @Test (priority = 4)
+    @Test (priority = 6)
     public void addFullDuplicate() {
         int quantity = addUserPage.countRowsInTable();
         addUserPage.setEmail("test@test.com")
@@ -124,7 +170,7 @@ public class AddUserNegativeTest extends BaseTest {
         Assert.assertEquals(addUserPage.countRowsInTable(), quantity);
     }
 
-    @Test (priority = 5)
+    @Test (priority = 7)
     public void addDuplicateEmail() {
         int quantity = addUserPage.countRowsInTable();
         addUserPage.setEmail("test@test.com")
